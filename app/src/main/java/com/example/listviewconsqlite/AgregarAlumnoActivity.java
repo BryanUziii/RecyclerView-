@@ -135,6 +135,23 @@ public class AgregarAlumnoActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void eliminarAlumno(View view) {
+
+        if (alumnoId != 0) {
+            // Si hay un ID de alumno válido, se actualiza el alumno existente
+            db.eliminarAlumno(alumnoId);
+            Toast.makeText(this, "Alumno eliminado correctamente", Toast.LENGTH_SHORT).show();
+
+            // Regresar
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "No existe alumno a eliminar", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
 
     private byte[] obtenerDatosImagen() {
         byte[] datosImagen = null;
